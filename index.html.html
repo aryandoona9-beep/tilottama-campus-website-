@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<title>Tilottama Campus | Butwal</title>
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+  scroll-behavior:smooth;
+}
+
+/* NAVBAR */
+nav{
+  position:fixed;
+  width:100%;
+  background:rgba(0,0,0,0.7);
+  color:white;
+  display:flex;
+  justify-content:space-between;
+  padding:15px 40px;
+  z-index:1000;
+}
+
+nav ul{
+  display:flex;
+  list-style:none;
+  gap:20px;
+}
+
+nav a{
+  color:white;
+  text-decoration:none;
+  font-weight:500;
+}
+
+/* HERO */
+.hero{
+  height:100vh;
+  position:relative;
+  overflow:hidden;
+}
+
+video{
+  position:absolute;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.overlay{
+  position:absolute;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.5);
+}
+
+.hero-content{
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  text-align:center;
+  color:white;
+  animation:fadeUp 2s ease;
+}
+
+.hero h1{
+  font-size:55px;
+  margin-bottom:20px;
+}
+
+.btn{
+  background:#0077ff;
+  padding:12px 30px;
+  border-radius:30px;
+  text-decoration:none;
+  color:white;
+}
+
+/* SECTIONS */
+section{
+  padding:100px 20px;
+  text-align:center;
+}
+
+/* CARDS */
+.grid{
+  margin-top:40px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:20px;
+}
+
+.card{
+  background:#f3f3f3;
+  padding:30px;
+  border-radius:15px;
+  transition:0.3s;
+}
+
+.card:hover{
+  transform:translateY(-10px);
+  box-shadow:0 10px 20px rgba(0,0,0,0.2);
+}
+
+/* PROGRAM LIST */
+.programs li{
+  list-style:none;
+  padding:10px;
+  font-size:18px;
+}
+
+/* FOOTER */
+footer{
+  background:#111;
+  color:white;
+  padding:20px;
+}
+
+/* ANIMATIONS */
+@keyframes fadeUp{
+  from{opacity:0; transform:translate(-50%, -40%);}
+  to{opacity:1; transform:translate(-50%, -50%);}
+}
+.fade{
+  opacity:0;
+  transform:translateY(40px);
+  transition:1s;
+}
+.show{
+  opacity:1;
+  transform:translateY(0);
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAV -->
+<nav>
+  <h2>Tilottama Campus</h2>
+  <ul>
+    <li><a href="#about">About</a></li>
+    <li><a href="#facilities">Facilities</a></li>
+    <li><a href="#programs">Programs</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+
+<!-- HERO VIDEO -->
+<div class="hero">
+  <!-- Put your campus video file name here -->
+  <video autoplay muted loop>
+    <source src="video.mp4" type="video/mp4">
+  </video>
+
+  <div class="overlay"></div>
+
+  <div class="hero-content">
+    <h1>Welcome to Tilottama Campus</h1>
+    <p>Excellence • Innovation • Success</p>
+    <br>
+    <a href="#about" class="btn">Explore Now</a>
+  </div>
+</div>
+
+
+<!-- ABOUT -->
+<section id="about" class="fade">
+  <h2>About Campus</h2>
+  <br>
+  <p>
+    Tilottama Campus is a leading educational institution in Butwal providing
+    quality education in Science, Management and Technology with modern facilities.
+  </p>
+</section>
+
+
+<!-- FACILITIES -->
+<section id="facilities">
+  <h2>Facilities</h2>
+
+  <div class="grid">
+
+    <div class="card fade">
+      <h3>Computer Lab</h3>
+      <p>Advanced computers with internet access</p>
+    </div>
+
+    <div class="card fade">
+      <h3>Library</h3>
+      <p>Thousands of books and digital resources</p>
+    </div>
+
+    <div class="card fade">
+      <h3>Sports</h3>
+      <p>Indoor and outdoor sports activities</p>
+    </div>
+
+    <div class="card fade">
+      <h3>Expert Teachers</h3>
+      <p>Highly experienced faculty members</p>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- PROGRAMS -->
+<section id="programs" class="fade">
+  <h2>Programs Offered</h2>
+  <ul class="programs">
+    <li>+2 Science</li>
+    <li>+2 Management</li>
+    <li>Bachelor in Computer Science</li>
+    <li>Bachelor in Management</li>
+  </ul>
+</section>
+
+
+<!-- CONTACT -->
+<section id="contact" class="fade">
+  <h2>Contact</h2>
+  <p>Butwal, Rupandehi, Nepal</p>
+  <p>Email: info@tilottamacampus.edu.np</p>
+</section>
+
+
+<footer>
+  © 2026 Tilottama Campus | All Rights Reserved
+</footer>
+
+
+<!-- SIMPLE SCROLL ANIMATION JS -->
+<script>
+const faders = document.querySelectorAll(".fade");
+
+const observer = new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add("show");
+    }
+  });
+});
+
+faders.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
